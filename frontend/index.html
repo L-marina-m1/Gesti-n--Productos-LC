@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtenciónTotal | Gestión de Clientes</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <div class="contenedor">
+
+        <aside class="sidebar">
+            <div class="logo">
+                <span>AT</span>
+                <div>
+                    <h2>AtenciónTotal</h2>
+                    <small>Gestión de clientes</small>
+                </div>
+            </div>
+
+            <nav>
+                <a href="#" class="activo" id="menuInicio">
+                    <span>⌂</span> Inicio
+                </a>
+                <a href="#" id="menuClientes">
+                    <span>♙</span> Clientes
+                </a>
+                <a href="#" id="menuContactos">
+                    <span>✉</span> Contactos
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>Sistema de administración</p>
+                <small>AtenciónTotal © 2026</small>
+            </div>
+        </aside>
+
+        <main class="contenido">
+
+            <header class="encabezado">
+                <div>
+                    <h1>Gestión de clientes</h1>
+                    <p>Bienvenido al sistema de AtenciónTotal</p>
+                </div>
+                <div class="usuario">
+                    <span>👤</span>
+                    <div>
+                        <strong>Administrador</strong>
+                        <small>Panel de control</small>
+                    </div>
+                </div>
+            </header>
+
+            <section class="estadisticas">
+                <div class="tarjeta">
+                    <div class="icono azul">👥</div>
+                    <div>
+                        <p>Total de clientes</p>
+                        <h2 id="totalClientes">0</h2>
+                    </div>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="icono verde">📞</div>
+                    <div>
+                        <p>Contactos registrados</p>
+                        <h2 id="totalContactos">0</h2>
+                    </div>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="icono naranja">🌐</div>
+                    <div>
+                        <p>Plataformas utilizadas</p>
+                        <h2 id="totalPlataformas">0</h2>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel">
+
+                <div class="panel-cabecera">
+                    <div>
+                        <h2 id="tituloSeccion">Lista de clientes</h2>
+                        <p>Administra la información de tus clientes.</p>
+                    </div>
+
+                    <button class="btn-principal" id="btnNuevo">
+                        + Nuevo cliente
+                    </button>
+                </div>
+
+                <div class="busqueda">
+                    <input
+                        type="text"
+                        id="buscar"
+                        placeholder="Buscar por nombre, correo o teléfono..."
+                    >
+                    <button id="btnBuscar">Buscar</button>
+                </div>
+
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Teléfono</th>
+                                <th>Plataforma</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaClientes">
+                            <tr>
+                                <td colspan="6">Cargando clientes...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p id="mensaje" class="mensaje"></p>
+
+            </section>
+
+            <footer>
+                AtenciónTotal - Sistema de gestión de contactos
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Ventana para registrar y editar -->
+    <div class="modal" id="modalCliente">
+        <div class="modal-contenido">
+
+            <div class="modal-cabecera">
+                <h2 id="tituloFormulario">Registrar cliente</h2>
+                <button id="btnCerrar" class="cerrar">&times;</button>
+            </div>
+
+            <form id="formCliente">
+
+                <input type="hidden" id="clienteId">
+
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" required
+                       placeholder="Ingrese el nombre">
+
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" required
+                       placeholder="ejemplo@correo.com">
+
+                <label for="telefono">Teléfono</label>
+                <input type="text" id="telefono" required
+                       placeholder="Ingrese el teléfono">
+
+                <label for="plataforma">Plataforma</label>
+                <select id="plataforma" required>
+                    <option value="">Seleccione una plataforma</option>
+                    <option value="WhatsApp">WhatsApp</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="Correo electrónico">Correo electrónico</option>
+                    <option value="Teléfono">Teléfono</option>
+                    <option value="Otra">Otra</option>
+                </select>
+
+                <div class="form-botones">
+                    <button type="button" id="btnCancelar"
+                            class="btn-secundario">Cancelar</button>
+                    <button type="submit" class="btn-principal">
+                        Guardar cliente
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
